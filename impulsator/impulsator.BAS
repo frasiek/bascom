@@ -1,4 +1,4 @@
-$sim
+'$sim
 '******************************
 '***    Program regulator   ***
 '***    Grupa III inf       ***
@@ -11,13 +11,14 @@ Cursor Off
 
 Dim I As Byte
 I = 0
-gosub Prnt
+Gosub Prnt
+
 Do
-   Bitwait P2.0 , Set
-   If P2.2 = 0 Then I = I + 1
-   If P2.2 = 1 Then I = I - 1
-   Bitwait P2.0 , Reset
-   Bitwait P2.2 , Reset
+   Bitwait P2.7 , Set
+   If P2.5 = 0 Then I = I - 1
+   If P2.5 = 1 Then I = I + 1
+   Bitwait P2.7 , Reset
+   Bitwait P2.5 , Reset
 
    Gosub Prnt
 Loop

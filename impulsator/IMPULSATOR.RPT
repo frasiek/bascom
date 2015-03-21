@@ -1,8 +1,8 @@
-Compiler   : BASCOM 8051 LIBRARY V 2.14
+Compiler   : BASCOM 8051 LIBRARY V 2.16
 Processor  : 89S8252
 Report     : IMPULSATOR
 Date       : 03-21-2015
-Time       : 15:51:37
+Time       : 16:05:44
 
 Baud Timer : 1
 Baudrate   : 0
@@ -35,5 +35,5 @@ CONSTANTS
 --------------------------------------------------------------------------------
 Constant                         Value
 --------------------------------------------------------------------------------
-_BUILDVERSION                    213
+_BUILDVERSION                    215
 
