@@ -7,6 +7,7 @@
 $large
 Config Lcdpin = Pin , Db4 = P3.4 , Db5 = P3.5 , Db6 = P3.6 , Db7 = P3.7 , E = P3.3 , Rs = P3.1
 Deflcdchar 0 , 32 , 32 , 31 , 17 , 31 , 16 , 31 , 2           ' ê
+Deflcdchar 1 , 32 , 32 , 4 , 10 , 17 , 31 , 32 , 32           ' delta
 Dim N As Byte
 Dim Zn As String * 1
 Dim Wyraz As String * 5
@@ -60,10 +61,22 @@ Klik:
 
       If P0 = 123 Then
       Zn = "#"
-      'Wyraz = Fusing(wyraz , #.#)
-     Liczba = Val(wyraz)
+      Liczba = Val(wyraz)
+
+      If Liczba > 24 Then
+         Gosub Error
+         Return
+      End If
+
       Liczba = Liczba * 10
+
       Liczbai = Liczba
+
+      If Liczba <> Liczbai Then
+         Gosub Error
+         Return
+      End If
+
       Gosub Prntno
       Wyraz = ""
          Waitms 120
@@ -85,4 +98,14 @@ Prntno:
       Lcd "Napi" ; Chr(0) ; "cie U=" ; Wyraz ; "V"
       Lowerline
       Lcd "Bajt - " ; Liczbai
+Return
+
+Error:
+     Cls
+     Lcd "U= 0-24 V"
+     Lowerline
+     Lcd Chr(1) ; "=0.1"
+     Wait 1
+     Wyraz = ""
+     Gosub Prnt
 Return
