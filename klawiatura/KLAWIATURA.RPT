@@ -1,0 +1,43 @@
+Compiler   : BASCOM 8051 LIBRARY V 2.14
+Processor  : 89S8252
+Report     : KLAWIATURA
+Date       : 03-21-2015
+Time       : 13:16:05
+
+Baud Timer : 1
+Baudrate   : 0
+Frequency  : 11059200
+Clock div. : 12
+ROM start  : &H0
+RAM start  : &H0
+LCD mode   : 4-bit
+StackStart : &H4C
+Used ROM   : &H72B     1835 (dec)  > Ok
+
+--------------------------------------------------------------------------------
+Variable                         Type            Address(hex)   Address(dec)
+--------------------------------------------------------------------------------
+
+ERR                              Bit               20.4
+
+
+N                                Byte              0033          51 
+DL                               Byte              004A          74 
+
+
+
+
+
+
+LICZBA                           Single            0046          70 
+
+
+ZN                               String            0034          52 
+WYRAZ                            String            0036          54 
+
+CONSTANTS
+--------------------------------------------------------------------------------
+Constant                         Value
+--------------------------------------------------------------------------------
+_BUILDVERSION                    213
+
