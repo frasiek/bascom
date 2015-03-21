@@ -1,8 +1,8 @@
-Compiler   : BASCOM 8051 LIBRARY V 2.14
+Compiler   : BASCOM 8051 LIBRARY V 2.16
 Processor  : 89S8252
 Report     : KLAWIATURA
 Date       : 03-21-2015
-Time       : 13:50:05
+Time       : 14:43:35
 
 Baud Timer : 1
 Baudrate   : 0
@@ -11,8 +11,8 @@ Clock div. : 12
 ROM start  : &H0
 RAM start  : &H0
 LCD mode   : 4-bit
-StackStart : &H4A
-Used ROM   : &H610     1552 (dec)  > Ok
+StackStart : &H44
+Used ROM   : &H87B     2171 (dec)  > doesn't fit into selected codesize : 2048
 
 --------------------------------------------------------------------------------
 Variable                         Type            Address(hex)   Address(dec)
@@ -22,16 +22,15 @@ ERR                              Bit               20.4
 
 
 N                                Byte              0033          51 
-DL                               Byte              0048          72 
+DL                               Byte              0042          66 
 
 
-LICZBA                           Integer           0046          70 
-
-
+LICZBAI                          Integer           0040          64 
 
 
 
 
+LICZBA                           Single            003C          60 
 
 
 ZN                               String            0034          52 
@@ -41,5 +40,5 @@ CONSTANTS
 --------------------------------------------------------------------------------
 Constant                         Value
 --------------------------------------------------------------------------------
-_BUILDVERSION                    213
+_BUILDVERSION                    215
 

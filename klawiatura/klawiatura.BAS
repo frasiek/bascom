@@ -1,18 +1,24 @@
-$sim
+'$sim
 '******************************
 '***    Program regulator   ***
 '***    Grupa III inf       ***
 '***    KIMK UP 2015        ***
 '******************************
+$large
 Config Lcdpin = Pin , Db4 = P3.4 , Db5 = P3.5 , Db6 = P3.6 , Db7 = P3.7 , E = P3.3 , Rs = P3.1
-Deflcdchar 0 , 32 , 32 , 31 , 17 , 31 , 16 , 31 , 2           ' replace ? with number (0-7)
+Deflcdchar 0 , 32 , 32 , 31 , 17 , 31 , 16 , 31 , 2           ' ê
 Dim N As Byte
 Dim Zn As String * 1
-Dim Wyraz As String * 15
-Dim Liczba As integer
+Dim Wyraz As String * 5
+Dim Liczba As Single
+Dim Liczbai As Integer
 Dim Dl As Byte
 
 Cursor Off
+
+      Cls
+      Lcd "Napi" ; Chr(0) ; "cie U="
+
 
 Do
    For N = 0 To 3
@@ -42,41 +48,41 @@ Klik:
    If P0 = 187 Then Zn = "9"
    Wyraz = Wyraz + Zn
 
-   If P0 = 123 Then
-      Zn = "#"
-      wyraz = fusing(wyraz , ###.#)
-      Liczba = Val(wyraz)
-      Gosub Prntno
-      Return
-   End If
-
-
    If P0 = 183 Then
       Zn = "C"
       Dl = Len(wyraz)
       Dl = Dl - 1
       Wyraz = Left(wyraz , Dl)
-      If Dl = 0 Then
-         Wyraz = ""
-      End If
+      If Dl = 0 Then Wyraz = ""
    End If
 
    Gosub Prnt
-   Waitms 150
 
+      If P0 = 123 Then
+      Zn = "#"
+      'Wyraz = Fusing(wyraz , #.#)
+     Liczba = Val(wyraz)
+      Liczba = Liczba * 10
+      Liczbai = Liczba
+      Gosub Prntno
+      Wyraz = ""
+         Waitms 120
+      Return
+   End If
+
+   Waitms 120
 Return
 
 
 Prnt:
       Cls
-      Locate 1 , 1
-      Lcd "Napi" ; Chr(0) ; "cie U: " ; Wyraz
+      Lcd "Napi" ; Chr(0) ; "cie U=" ; Wyraz
 
 Return
 
 Prntno:
       Cls
-      Locate 1 , 1
-      Lcd "Napi" ; Chr(0) ; "cie U: " ; Liczba ; " V"
-
+      Lcd "Napi" ; Chr(0) ; "cie U=" ; Wyraz ; "V"
+      Lowerline
+      Lcd "Bajt - " ; Liczbai
 Return
