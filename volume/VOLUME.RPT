@@ -1,0 +1,42 @@
+Compiler   : BASCOM 8051 LIBRARY V 2.14
+Processor  : 89S8252
+Report     : VOLUME
+Date       : 03-21-2015
+Time       : 16:37:28
+
+Baud Timer : 1
+Baudrate   : 0
+Frequency  : 11059200
+Clock div. : 12
+ROM start  : &H0
+RAM start  : &H0
+LCD mode   : 4-bit
+StackStart : &H46
+Used ROM   : &H3AE     942 (dec)  > Ok
+
+--------------------------------------------------------------------------------
+Variable                         Type            Address(hex)   Address(dec)
+--------------------------------------------------------------------------------
+
+ERR                              Bit               20.4
+
+
+J                                Byte              0043          67 
+I                                Byte              0044          68 
+DIFF                             Byte              0045          69 
+
+
+
+
+
+
+
+
+PROGRES                          String            0032          50 
+
+CONSTANTS
+--------------------------------------------------------------------------------
+Constant                         Value
+--------------------------------------------------------------------------------
+_BUILDVERSION                    213
+
