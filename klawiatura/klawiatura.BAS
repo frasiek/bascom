@@ -9,16 +9,19 @@ Deflcdchar 0 , 32 , 32 , 31 , 17 , 31 , 16 , 31 , 2           ' replace ? with n
 Dim N As Byte
 Dim Zn As String * 1
 Dim Wyraz As String * 15
-Dim Liczba As Single
+Dim Liczba As integer
 Dim Dl As Byte
+
+Cursor Off
+
 Do
    For N = 0 To 3
-      P2.n = 0
-      Debounce P2.4 , 0 , Klik , Sub
-      Debounce P2.5 , 0 , Klik , Sub
-      Debounce P2.6 , 0 , Klik , Sub
-      Debounce P2.7 , 0 , Klik , Sub
-      P2.n = 1
+      P0.n = 0
+      Debounce P0.4 , 0 , Klik , Sub
+      Debounce P0.5 , 0 , Klik , Sub
+      Debounce P0.6 , 0 , Klik , Sub
+      Debounce P0.7 , 0 , Klik , Sub
+      P0.n = 1
    Next N
 
 Loop
@@ -41,6 +44,7 @@ Klik:
 
    If P0 = 123 Then
       Zn = "#"
+      wyraz = fusing(wyraz , ###.#)
       Liczba = Val(wyraz)
       Gosub Prntno
       Return
@@ -52,10 +56,13 @@ Klik:
       Dl = Len(wyraz)
       Dl = Dl - 1
       Wyraz = Left(wyraz , Dl)
+      If Dl = 0 Then
+         Wyraz = ""
+      End If
    End If
 
    Gosub Prnt
-
+   Waitms 150
 
 Return
 
@@ -63,13 +70,13 @@ Return
 Prnt:
       Cls
       Locate 1 , 1
-      Lcd "Napi" ; Chr(0) ; "cie: " ; Wyraz
+      Lcd "Napi" ; Chr(0) ; "cie U: " ; Wyraz
 
 Return
 
 Prntno:
-       Cls
+      Cls
       Locate 1 , 1
-      Lcd "Napi" ; Chr(0) ; "cie: " ; Liczba ; "V"
+      Lcd "Napi" ; Chr(0) ; "cie U: " ; Liczba ; " V"
 
 Return
